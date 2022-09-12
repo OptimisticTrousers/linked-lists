@@ -27,6 +27,19 @@ describe("LinkedList", () => {
       expect(linkedList.size()).toBe(6);
     });
   });
+  describe("prepend", () => {
+    test("new head is latest prepended node", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.prepend(15);
+      linkedList.prepend(10);
+      linkedList.prepend(58);
+      linkedList.prepend(18);
+
+      expect(linkedList.head().value).toBe(18);
+      expect(linkedList.tail().value).toBe(15);
+    });
+  });
 });
 
 describe("Node", () => {});
