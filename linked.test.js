@@ -137,6 +137,68 @@ describe("LinkedList", () => {
       "( 10 ) => ( 6 ) => ( 3 ) => ( 11 ) => ( 19 ) => ( 25 ) => null"
     );
   });
+  describe("insertAt", () => {
+    test("removes element at arbitrary index", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(3);
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.removeAt(2);
+
+      expect(linkedList.size()).toEqual(3);
+      expect(linkedList.head()).toEqual(
+        new Node(3, new Node(19, new Node(25, null)))
+      );
+    });
+    test("removes first element", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(3);
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.removeAt(0);
+
+      expect(linkedList.size()).toEqual(3);
+      expect(linkedList.head()).toEqual(
+        new Node(11, new Node(19, new Node(25, null)))
+      );
+    });
+    test("removes last element", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(3);
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.removeAt(3);
+
+      expect(linkedList.size()).toEqual(3);
+      expect(linkedList.head()).toEqual(
+        new Node(3, new Node(11, new Node(19, null)))
+      );
+    });
+    test("does not do anything when index is out of bounds", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(3);
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.removeAt(10);
+
+      expect(linkedList.size()).toEqual(4);
+      expect(linkedList.head()).toEqual(
+        new Node(3, new Node(11, new Node(19, new Node(25, null))))
+      );
+    });
+  });
 });
 
 describe("Node", () => {
