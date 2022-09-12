@@ -94,12 +94,12 @@ describe("LinkedList", () => {
     linkedList.append(10);
     linkedList.append(6);
 
-    const mockNode = new Node(10);
-    const nextMocknode = new Node(6);
+    const nextMocknode = new Node(6, null);
+    new Node(10, nextMocknode);
 
-    mockNode.setNextNode(nextMocknode);
-
-    expect(linkedList.tail()).toEqual(nextMocknode.getNode());
+    expect(JSON.stringify(linkedList.tail())).toEqual(
+      JSON.stringify(nextMocknode)
+    );
   });
   test("size", () => {
     const linkedList = new LinkedList();
