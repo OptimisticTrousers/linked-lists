@@ -155,6 +155,16 @@ class Node {
 }
 
 const linkedList = new LinkedList();
+
+linkedList.append({ name: "bob" });
+linkedList.append(10);
+linkedList.append(58);
+linkedList.append(78);
+linkedList.prepend(15);
+linkedList.pop();
+console.log(linkedList.contains(15));
+linkedList.insertAt(1, { name: "locos" });
+console.log(linkedList.toString());
 module.exports = {
   Node,
   LinkedList,
