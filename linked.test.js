@@ -137,7 +137,7 @@ describe("LinkedList", () => {
       "( 10 ) => ( 6 ) => ( 3 ) => ( 11 ) => ( 19 ) => ( 25 ) => null"
     );
   });
-  describe("insertAt", () => {
+  describe("removeAt", () => {
     test("removes element at arbitrary index", () => {
       const linkedList = new LinkedList();
 
@@ -146,11 +146,11 @@ describe("LinkedList", () => {
       linkedList.append(19);
       linkedList.append(25);
 
-      linkedList.removeAt(2);
+      linkedList.removeAt(1);
 
       expect(linkedList.size()).toEqual(3);
-      expect(linkedList.head()).toEqual(
-        new Node(3, new Node(19, new Node(25, null)))
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(new Node(3, new Node(19, new Node(25, null))))
       );
     });
     test("removes first element", () => {
@@ -164,8 +164,8 @@ describe("LinkedList", () => {
       linkedList.removeAt(0);
 
       expect(linkedList.size()).toEqual(3);
-      expect(linkedList.head()).toEqual(
-        new Node(11, new Node(19, new Node(25, null)))
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(new Node(11, new Node(19, new Node(25, null))))
       );
     });
     test("removes last element", () => {
@@ -179,8 +179,8 @@ describe("LinkedList", () => {
       linkedList.removeAt(3);
 
       expect(linkedList.size()).toEqual(3);
-      expect(linkedList.head()).toEqual(
-        new Node(3, new Node(11, new Node(19, null)))
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(new Node(3, new Node(11, new Node(19, null))))
       );
     });
     test("does not do anything when index is out of bounds", () => {
@@ -194,8 +194,10 @@ describe("LinkedList", () => {
       linkedList.removeAt(10);
 
       expect(linkedList.size()).toEqual(4);
-      expect(linkedList.head()).toEqual(
-        new Node(3, new Node(11, new Node(19, new Node(25, null))))
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(
+          new Node(3, new Node(11, new Node(19, new Node(25, null))))
+        )
       );
     });
   });

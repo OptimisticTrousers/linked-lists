@@ -17,9 +17,9 @@ class LinkedList {
   };
 
   prepend = (value) => {
-      const oldHead = this.#head
-      this.#head = new Node(value, oldHead);
-      this.#size = this.#size + 1
+    const oldHead = this.#head;
+    this.#head = new Node(value, oldHead);
+    this.#size = this.#size + 1;
   };
 
   at = (index) => {
@@ -93,13 +93,26 @@ class LinkedList {
     return output;
   };
 
-  insertAt = (value, index) => {
-
-  }
+  insertAt = (value, index) => {};
 
   removeAt = (index) => {
-    
-  }
+    let temp = this.#head;
+    let i = 0;
+    if (index === 0) {
+      this.#head = temp.nextNode;
+      temp.setNextNode(null);
+      this.#size = this.#size - 1;
+    } else {
+      while (temp && i < index) {
+        if (i === index - 1) {
+          temp.setNextNode(temp.nextNode.nextNode);
+          this.#size = this.#size - 1;
+        }
+        i++;
+        temp = temp.nextNode;
+      }
+    }
+  };
 }
 
 class Node {
