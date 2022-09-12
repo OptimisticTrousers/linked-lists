@@ -12,15 +12,21 @@ describe("LinkedList", () => {
     linkedList.append(38);
     linkedList.append(45);
     linkedList.append(78);
-    const mockNode = {
-      value: 10,
-      nextNode: null,
-      removeNextNode: jest.fn(),
-      setNextNode: jest.fn(),
-    };
-    expect(linkedList.head()).toEqual("bob");
-    expect(linkedList.tail()).toEqual(new Node(78, null));
-    expect(linkedList.size()).toBe(6);
+
+    expect(JSON.stringify(linkedList.head())).toEqual(
+      JSON.stringify(
+        new Node(
+          10,
+          new Node(
+            5,
+            new Node(
+              100,
+              new Node(30, new Node(38, new Node(45, new Node(78, null))))
+            )
+          )
+        )
+      )
+    );
   });
   describe("prepend", () => {
     test("new head is latest prepended node", () => {
@@ -31,8 +37,11 @@ describe("LinkedList", () => {
       linkedList.prepend(58);
       linkedList.prepend(18);
 
-      expect(linkedList.head().value).toBe(18);
-      expect(linkedList.tail().value).toBe(15);
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(
+          new Node(15, new Node(10, new Node(58, new Node(18, null))))
+        )
+      );
     });
   });
   test("contains", () => {
