@@ -39,7 +39,7 @@ describe("LinkedList", () => {
 
       expect(JSON.stringify(linkedList.head())).toEqual(
         JSON.stringify(
-          new Node(15, new Node(10, new Node(58, new Node(18, null))))
+          new Node(18, new Node(58, new Node(10, new Node(15, null))))
         )
       );
     });
@@ -74,10 +74,10 @@ describe("LinkedList", () => {
     test("removes last node", () => {
       const linkedList = new LinkedList();
 
-      linkedList.prepend(15);
-      linkedList.prepend(10);
-      linkedList.prepend(58);
-      linkedList.prepend(18);
+      linkedList.append(15);
+      linkedList.append(10);
+      linkedList.append(58);
+      linkedList.append(18);
 
       linkedList.pop();
 

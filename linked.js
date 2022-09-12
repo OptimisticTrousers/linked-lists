@@ -17,15 +17,9 @@ class LinkedList {
   };
 
   prepend = (value) => {
-    this.#prev = this.#head;
-    this.#head = new Node(value, this.#prev);
+    const oldHead = this.#head;
+    this.#head = new Node(value, oldHead);
     this.#size = this.#size + 1;
-    if (this.#prev) {
-      this.#prev.setNextNode(null);
-    }
-    if (this.#tail === null) {
-      this.#tail = this.#prev;
-    }
   };
 
   at = (index) => {
