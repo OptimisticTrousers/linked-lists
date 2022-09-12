@@ -74,6 +74,18 @@ class LinkedList {
   size = () => {
     return this.#size;
   };
+
+  toString = () => {
+    let temp = this.#head;
+    let index = 0;
+    let output = "";
+    while (temp.next) {
+      temp = temp.next;
+      index++;
+      output += `( ${temp.value} ) => ${temp.next.value}`;
+    }
+    return output;
+  };
 }
 
 class Node {
@@ -93,3 +105,8 @@ class Node {
 const linkedList = new LinkedList();
 
 linkedList.append(5);
+
+module.exports = {
+  Node,
+  LinkedList,
+};
