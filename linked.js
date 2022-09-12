@@ -60,7 +60,7 @@ class LinkedList {
         return index;
       }
       index++;
-      temp = temp.next;
+      temp = temp.nextNode;
     }
     return null;
   };
