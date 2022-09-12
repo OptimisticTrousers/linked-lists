@@ -23,6 +23,7 @@ class LinkedList {
   };
 
   at = (index) => {
+    if (index < 0) return;
     let i = 0;
     let temp = this.#head;
     while (temp.next && i <= index) {
@@ -46,6 +47,7 @@ class LinkedList {
   };
 
   find = (value) => {
+    if (value < 0) return;
     let temp = this.#head;
     let index = 0;
 
@@ -96,8 +98,10 @@ class LinkedList {
   insertAt = (value, index) => {};
 
   removeAt = (index) => {
+    if (index < 0) return;
     let temp = this.#head;
     let i = 0;
+
     if (index === 0) {
       this.#head = temp.nextNode;
       temp.setNextNode(null);
