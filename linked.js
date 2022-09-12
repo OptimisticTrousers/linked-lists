@@ -16,7 +16,13 @@ class LinkedList {
     }
   };
 
-  head = () => {};
+  head = () => {
+    return this.#head;
+  };
+
+  tail = () => {
+    return this.#tail;
+  };
 
   size = () => {
     return this.#size;
