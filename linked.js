@@ -16,6 +16,13 @@ class LinkedList {
     }
   };
 
+  pop = () => {
+    if (this.#prev) {
+      this.#prev.removeNextNode();
+      this.#tail = this.#prev;
+    }
+  };
+
   head = () => {
     return this.#head;
   };
@@ -37,6 +44,9 @@ class Node {
 
   setNextNode = (node) => {
     this.nextNode = node;
+  };
+  removeNextNode = () => {
+    this.nextNode = null;
   };
 }
 
