@@ -42,11 +42,11 @@ class LinkedList {
 
   contains = (value) => {
     let temp = this.#head;
-    while (temp.next) {
+    while (temp.nextNode) {
       if (temp.value === value) {
         return true;
       }
-      temp = temp.next;
+      temp = temp.nextNode;
     }
     return false;
   };
