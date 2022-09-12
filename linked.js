@@ -17,9 +17,9 @@ class LinkedList {
   };
 
   prepend = (value) => {
-    const oldHead = this.#head;
-    this.#head = new Node(value, oldHead);
-    this.#size = this.#size + 1;
+      const oldHead = this.#head
+      this.#head = new Node(value, oldHead);
+      this.#size = this.#size + 1
   };
 
   at = (index) => {

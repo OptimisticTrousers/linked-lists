@@ -139,4 +139,19 @@ describe("LinkedList", () => {
   });
 });
 
-describe("Node", () => {});
+describe("Node", () => {
+  test("setNextNode", () => {
+    const node = new Node("pollo", null);
+
+    node.setNextNode(new Node("guys", null));
+
+    expect(node.nextNode).not.toEqual(null);
+  });
+  test("removeNextNode", () => {
+    const node = new Node("pollo", new Node("guys", null));
+
+    node.removeNextNode();
+
+    expect(node.nextNode).toEqual(null);
+  });
+});
