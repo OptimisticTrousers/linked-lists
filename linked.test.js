@@ -162,7 +162,6 @@ describe("LinkedList", () => {
       linkedList.append(25);
 
       linkedList.removeAt(0);
-
       expect(linkedList.size()).toEqual(3);
       expect(JSON.stringify(linkedList.head())).toEqual(
         JSON.stringify(new Node(11, new Node(19, new Node(25, null))))
@@ -198,6 +197,69 @@ describe("LinkedList", () => {
         JSON.stringify(
           new Node(3, new Node(11, new Node(19, new Node(25, null))))
         )
+      );
+    });
+  });
+  describe("insertAt", () => {
+    test("insert value at arbitrary index", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.insertAt(1000, 1);
+
+      expect(linkedList.size()).toBe(5);
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(new Node(11, new Node(19, new Node(1000, new Node(25)))))
+      );
+    });
+
+    test("insert value at first index", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.insertAt(1000, 0);
+
+      expect(linkedList.size()).toBe(4);
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(
+          new Node(1000, new Node(11, new Node(19, new Node(25, null))))
+        )
+      );
+    });
+    test("insert value at last index", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.insertAt(1000, 2);
+
+      expect(linkedList.size()).toBe(4);
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(
+          new Node(11, new Node(19, new Node(25, new Node(100, null))))
+        )
+      );
+    });
+    test("insert value for out of bounds index", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.append(11);
+      linkedList.append(19);
+      linkedList.append(25);
+
+      linkedList.insertAt(1000, 20);
+
+      expect(linkedList.size()).toBe(3);
+      expect(JSON.stringify(linkedList.head())).toEqual(
+        JSON.stringify(new Node(11, new Node(19, new Node(25))))
       );
     });
   });

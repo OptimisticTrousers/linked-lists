@@ -95,7 +95,11 @@ class LinkedList {
     return output;
   };
 
-  insertAt = (value, index) => {};
+  insertAt = (value, index) => {
+    if (index < 0) return;
+
+    
+  };
 
   removeAt = (index) => {
     if (index < 0) return;
