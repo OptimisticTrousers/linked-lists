@@ -82,12 +82,11 @@ describe("LinkedList", () => {
 
     linkedList.append(10);
     linkedList.append(6);
+    linkedList.append(15);
 
-    const mockNode = new Node(10);
+    const mockNode = new Node(10, new Node(6, new Node(15, null)));
 
-    mockNode.setNextNode(new Node(6, null));
-
-    expect(linkedList.head()).toEqual(mockNode);
+    expect(JSON.stringify(linkedList.head())).toEqual(JSON.stringify(mockNode));
   });
   test("tail", () => {
     const linkedList = new LinkedList();
