@@ -98,7 +98,24 @@ class LinkedList {
   insertAt = (value, index) => {
     if (index < 0) return;
 
-    
+    let temp = this.#head;
+    let i = 0;
+
+    if (index === 0) {
+      this.prepend(value);
+    }
+
+    while (temp && i < index) {
+      if (i === index - 1) {
+        // temp.nextNode.setNextNode(new Node(value, temp.nextNode.nextNode));
+        this.#prev = temp;
+
+        temp.setNextNode(new Node(value, temp.nextNode));
+        this.#size = this.#size + 1;
+      }
+      temp = temp.nextNode;
+      i++;
+    }
   };
 
   removeAt = (index) => {

@@ -210,9 +210,11 @@ describe("LinkedList", () => {
 
       linkedList.insertAt(1000, 1);
 
-      expect(linkedList.size()).toBe(5);
+      expect(linkedList.size()).toBe(4);
       expect(JSON.stringify(linkedList.head())).toEqual(
-        JSON.stringify(new Node(11, new Node(19, new Node(1000, new Node(25)))))
+        JSON.stringify(
+          new Node(11, new Node(1000, new Node(19, new Node(25, null))))
+        )
       );
     });
 
@@ -244,7 +246,7 @@ describe("LinkedList", () => {
       expect(linkedList.size()).toBe(4);
       expect(JSON.stringify(linkedList.head())).toEqual(
         JSON.stringify(
-          new Node(11, new Node(19, new Node(25, new Node(100, null))))
+          new Node(11, new Node(19, new Node(1000, new Node(25, null))))
         )
       );
     });
@@ -259,7 +261,7 @@ describe("LinkedList", () => {
 
       expect(linkedList.size()).toBe(3);
       expect(JSON.stringify(linkedList.head())).toEqual(
-        JSON.stringify(new Node(11, new Node(19, new Node(25))))
+        JSON.stringify(new Node(11, new Node(19, new Node(25, null))))
       );
     });
   });
