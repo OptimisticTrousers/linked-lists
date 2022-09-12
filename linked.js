@@ -1,14 +1,25 @@
 class LinkedList {
-  prev = null;
-  current = null;
+  #prev = null;
+  #size = 0;
+  #head = null;
+  #tail = null;
+
   append = (value) => {
-    prev = current;
-    current = new Node(value, null);
-    this.prev.setNextNode(current);
+    this.#prev = this.#tail;
+    this.#tail = new Node(value, null);
+    this.#size = this.#size + 1;
+    if (this.#prev) {
+      this.#prev.setNextNode(this.#tail);
+    }
+    if (this.#head === null) {
+      this.#head = this.#tail;
+    }
   };
 
+  head = () => {};
+
   size = () => {
-    return size;
+    return this.#size;
   };
 }
 
@@ -22,3 +33,7 @@ class Node {
     this.nextNode = node;
   };
 }
+
+const linkedList = new LinkedList();
+
+linkedList.append(5);
