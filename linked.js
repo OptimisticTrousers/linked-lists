@@ -20,6 +20,29 @@ class LinkedList {
     this.#head = new Node(value, this.#head);
   };
 
+  at = (index) => {
+    let i = 0;
+    let temp = this.#head;
+    while (temp.next && i <= index) {
+      if (i === index) {
+        return temp;
+      }
+      temp = temp.next;
+      i++;
+    }
+  };
+
+  contains = (value) => {
+    let temp = this.#head;
+    while (temp.next) {
+      temp = temp.next;
+      if (temp.value === value) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   pop = () => {
     if (this.#prev) {
       this.#prev.removeNextNode();
