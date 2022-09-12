@@ -43,6 +43,19 @@ class LinkedList {
     return false;
   };
 
+  find = (value) => {
+    let temp = this.#head;
+    let index = 0;
+    while (temp.next) {
+      temp = temp.next;
+      index++;
+      if (temp.value === value) {
+        return index;
+      }
+    }
+    return null;
+  };
+
   pop = () => {
     if (this.#prev) {
       this.#prev.removeNextNode();
