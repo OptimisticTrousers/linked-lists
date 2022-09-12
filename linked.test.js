@@ -40,6 +40,84 @@ describe("LinkedList", () => {
       expect(linkedList.tail().value).toBe(15);
     });
   });
+  describe("pop", () => {
+    test("removes last node", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.prepend(15);
+      linkedList.prepend(10);
+      linkedList.prepend(58);
+      linkedList.prepend(18);
+
+      linkedList.pop();
+
+      expect(linkedList.size()).toBe(3);
+      expect(linkedList.tail()).toEqual(new Node(58, null));
+    });
+  });
+  test("head", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.append(10);
+    linkedList.append(6);
+
+    const mockNode = new Node(10);
+
+    mockNode.setNextNode(new Node(6, null));
+
+    expect(linkedList.head()).toEqual(mockNode);
+  });
+  test("tail", () => {
+    const linkedList = new LinkedList();
+    linkedList.append(10);
+    linkedList.append(6);
+
+    const mockNode = new Node(10);
+    const nextMocknode = new Node(6);
+
+    mockNode.setNextNode(nextMocknode);
+
+    expect(linkedList.tail()).toEqual(nextMocknode.getNode());
+  });
+
+  test("size", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.append(10);
+    linkedList.append(6);
+    linkedList.append(3);
+    linkedList.append(10);
+    linkedList.append(6);
+    linkedList.append(3);
+
+    expect(linkedList.size()).toBe(6);
+  });
+  test("contains", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.append(10);
+    linkedList.append(6);
+    linkedList.append(3);
+    linkedList.append(11);
+    linkedList.append(19);
+    linkedList.append(25);
+
+    expect(linkedList.contains(19)).toBe(true);
+    expect(linkedList.contains(30)).toBe(false);
+  });
+  test("find", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.append(10);
+    linkedList.append(6);
+    linkedList.append(3);
+    linkedList.append(11);
+    linkedList.append(19);
+    linkedList.append(25);
+
+    expect(linkedList.find(19)).toEqual(4);
+    expect(linkedList.find(34)).toEqual(null);
+  });
 });
 
 describe("Node", () => {});

@@ -43,10 +43,10 @@ class LinkedList {
   contains = (value) => {
     let temp = this.#head;
     while (temp.next) {
-      temp = temp.next;
       if (temp.value === value) {
         return true;
       }
+      temp = temp.next;
     }
     return false;
   };
@@ -54,12 +54,13 @@ class LinkedList {
   find = (value) => {
     let temp = this.#head;
     let index = 0;
-    while (temp.next) {
-      temp = temp.next;
-      index++;
+
+    while (temp) {
       if (temp.value === value) {
         return index;
       }
+      index++;
+      temp = temp.next;
     }
     return null;
   };
@@ -68,6 +69,7 @@ class LinkedList {
     if (this.#prev) {
       this.#prev.removeNextNode();
       this.#tail = this.#prev;
+      this.#size = this.#size - 1;
     }
   };
 

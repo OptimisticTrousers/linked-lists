@@ -17,7 +17,7 @@
     "url": "https://github.com/OptimisticTrousers/linked-lists/issues"
   },
   "homepage": "https://github.com/OptimisticTrousers/linked-lists#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^29.0.3"
   }
 }
