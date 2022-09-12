@@ -16,6 +16,10 @@ class LinkedList {
     }
   };
 
+  prepend = (value) => {
+    this.#head = new Node(value, this.#head);
+  };
+
   pop = () => {
     if (this.#prev) {
       this.#prev.removeNextNode();
