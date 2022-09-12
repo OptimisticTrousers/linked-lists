@@ -86,6 +86,13 @@ describe("LinkedList", () => {
         JSON.stringify(new Node(58, null))
       );
     });
+    test("fails when given an empty linked list", () => {
+      const linkedList = new LinkedList();
+
+      linkedList.pop();
+
+      expect(linkedList.size()).toBe(0);
+    });
   });
 
   test("head", () => {
